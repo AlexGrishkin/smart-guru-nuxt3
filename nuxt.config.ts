@@ -1,5 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { provider } from "std-env";
 
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
@@ -12,6 +11,7 @@ export default defineNuxtConfig({
     "dayjs-nuxt",
     "nuxt-typed-router",
     "nuxt-file-storage",
+    "@nuxt/eslint",
   ],
   families: [{ name: "montserrat", provider: "google" }],
   css: ["~/assets/scss/global.scss"],
