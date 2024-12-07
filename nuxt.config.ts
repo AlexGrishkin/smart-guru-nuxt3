@@ -16,11 +16,14 @@ export default defineNuxtConfig({
   families: [{ name: "montserrat", provider: "google" }],
   css: ["~/assets/scss/global.scss"],
   vite: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
         @use "~/assets/scss/_vars.scss" as *;
-        @use "~/assets/scss/_mixins.scss" as *;`,
+        @use "~/assets/scss/_mixins.scss" as *;
+        `,
+        },
       },
     },
   },

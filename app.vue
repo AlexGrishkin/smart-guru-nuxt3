@@ -7,5 +7,6 @@
 <style lang="scss">
 h1 {
   @include Title;
+  color: $primary;
 }
 </style>
