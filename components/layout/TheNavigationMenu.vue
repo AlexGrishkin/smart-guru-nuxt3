@@ -1,4 +1,6 @@
-<template></template>
+<template>
+  <div>Hello</div>
+</template>
 
 <script setup>
 defineOptions({
