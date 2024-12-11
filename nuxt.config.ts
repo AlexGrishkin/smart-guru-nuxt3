@@ -12,16 +12,7 @@ export default defineNuxtConfig({
     "nuxt-typed-router",
     "nuxt-file-storage",
     "@nuxt/eslint",
-    "@nuxtjs/stylelint-module",
   ],
-  stylelint: {
-    cache: true,
-    include: ["src/**/*.{css,scss,vue}"],
-    exclude: ["**/node_modules/**", ".nuxt/**"],
-    emitError: true,
-    emitWarning: true,
-    lintOnStart: false,
-  },
   families: [{ name: "montserrat", provider: "google" }],
   css: ["~/assets/scss/global.scss"],
   vite: {
