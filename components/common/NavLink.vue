@@ -1,5 +1,5 @@
 <template>
-  <div :class="[$style.navLinkWrapper, { [$style._activeLink]: route.path === linkData.link }]">
+  <div :class="[$style.navLinkWrapper, { [$style._activeLink]: isActiveLink }]">
     <nuxt-link :to="linkData.link" :class="$style.navLink">
       <nuxt-img :class="$style.navImg" :src="linkData.imgSrc" />
       <p :class="$style.navTitle">{{ linkData.title }}</p>
@@ -15,11 +15,10 @@ interface LinkProps {
   title: string;
 }
 
-defineProps<{ linkData: LinkProps }>();
+const props = defineProps<{ linkData: LinkProps }>();
 
 const route = useRoute();
-// надо разобраться как выносить сюда вычисление того что мне надо а не писать в разметке
-// const isActiveLink = computed(() => route.path === linkData.link);
+const isActiveLink = computed(() => route.path === props.linkData.link);
 </script>
 
 <style module lang="scss">
