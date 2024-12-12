@@ -13,7 +13,10 @@ export default defineNuxtConfig({
     'nuxt-file-storage',
     '@nuxt/eslint',
   ],
-  families: [{ name: 'montserrat', provider: 'google' }],
+  families: [
+    { name: 'montserrat', provider: 'google' },
+    { name: 'geist', provider: 'google' },
+  ],
   css: ['~/assets/scss/global.scss'],
   vite: {
     css: {

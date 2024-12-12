@@ -1,43 +1,40 @@
 <template>
-  <div v-if="NAVIGATION_CONFIG.length" :class="$style.navLinkWrapper">
-    <nuxt-link
-      v-for="(nav, index) in NAVIGATION_CONFIG"
-      :key="index"
-      :to="nav.link"
-      :class="$style.navLink"
-    >
-      <!--      выделить в отдельный ui-->
-      <nuxt-img :src="nav.img" />
-      <p>{{ nav.name }}</p>
-    </nuxt-link>
+  <div :class="$style.navLinkWrapper">
+    <NavLink v-for="nav in NAVIGATION_CONFIG" :key="nav.id" :link-data="nav" />
   </div>
 </template>
 
 <script setup>
+import NavLink from '~/components/common/NavLink.vue';
+
 defineOptions({
-  name: 'TheHeader',
+  name: 'TheNavigationMenu',
 });
 
 const NAVIGATION_CONFIG = [
   {
     link: '/',
-    name: 'Каталог',
-    img: '/catalog.svg',
+    title: 'Каталог',
+    imgSrc: '/catalog.svg',
+    id: 1,
   },
   {
     link: '/entries',
-    name: 'Записи',
-    img: '/entries.svg',
+    title: 'Записи',
+    imgSrc: '/entries.svg',
+    id: 2,
   },
   {
     link: '/certificates',
-    name: 'Сертификаты',
-    img: '/certificates.svg',
+    title: 'Сертификаты',
+    imgSrc: '/certificates.svg',
+    id: 3,
   },
   {
     link: '/reviews',
-    name: 'Отзывы',
-    img: '/reviews.svg',
+    title: 'Отзывы',
+    imgSrc: '/reviews.svg',
+    id: 4,
   },
 ];
 </script>
@@ -49,10 +46,5 @@ const NAVIGATION_CONFIG = [
   padding: 3rem 2rem 2rem 3rem;
   flex-direction: column;
   gap: 1rem;
-}
-
-.navLink {
-  display: flex;
-  gap: 1.4rem;
 }
 </style>
