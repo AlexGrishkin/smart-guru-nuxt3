@@ -1,15 +1,15 @@
 <template>
   <div :class="[$style.navLinkWrapper, { [$style._activeLink]: isActiveLink }]">
-    <nuxt-link :to="linkData.link" :class="$style.navLink">
+    <NuxtLink :href="linkData.link" :class="$style.navLink">
       <nuxt-img :class="$style.navImg" :src="linkData.imgSrc" />
       <p :class="$style.navTitle">{{ linkData.title }}</p>
-    </nuxt-link>
+    </NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
 interface LinkProps {
-  id?: number;
+  id?: number | string;
   link: string;
   imgSrc: string;
   title: string;

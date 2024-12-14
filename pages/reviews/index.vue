@@ -4,7 +4,6 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
 <style lang="scss">
 h1 {
   @include Title;
