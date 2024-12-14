@@ -2,10 +2,15 @@
   <div :class="$style.navigationLinksWrapper">
     <NavigationLogo :class="$style.navLogo" />
     <div :class="$style.navLinkTop">
-      <NavLink v-for="nav in NAVIGATION_CONFIG" :key="nav.id" :link-data="nav" />
+      <NavLink
+        v-for="nav in NAVIGATION_CONFIG"
+        :key="nav.id"
+        :link-data="nav"
+        data-allow-mismatch
+      />
     </div>
     <div :class="$style.navLinkBottom">
-      <nav-link :link-data="NAVIGATION_CONFIG_BOTTOM" />
+      <nav-link :link-data="NAVIGATION_CONFIG_BOTTOM" data-allow-mismatch />
     </div>
   </div>
 </template>

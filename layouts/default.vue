@@ -2,7 +2,7 @@
   <div :class="$style.Container">
     <LayoutTheNavigationMenu />
     <div :class="$style.mainContent">
-      <slot />
+      <nuxt-page />
     </div>
   </div>
 </template>
