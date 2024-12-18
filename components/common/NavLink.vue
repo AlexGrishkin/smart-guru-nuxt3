@@ -1,7 +1,7 @@
 <template>
   <div :class="[$style.navLinkWrapper, { [$style._activeLink]: isActiveLink }]">
     <NuxtLink :href="linkData.link" :class="$style.navLink">
-      <nuxt-img :class="$style.navImg" :src="linkData.imgSrc" />
+      <nuxt-img preload :class="$style.navImg" :src="linkData.imgSrc" />
       <p :class="$style.navTitle">{{ linkData.title }}</p>
     </NuxtLink>
   </div>
