@@ -7,10 +7,11 @@
         :key="nav.id"
         :link-data="nav"
         data-allow-mismatch
+        size="base"
       />
     </div>
     <div :class="$style.navLinkBottom">
-      <nav-link :link-data="NAVIGATION_CONFIG_BOTTOM" data-allow-mismatch />
+      <nav-link :link-data="NAVIGATION_CONFIG_BOTTOM" data-allow-mismatch size="base" />
     </div>
   </div>
 </template>

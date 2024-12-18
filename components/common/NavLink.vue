@@ -1,8 +1,9 @@
 <template>
-  <div :class="[$style.navLinkWrapper, { [$style._activeLink]: isActiveLink }]">
+  <div :class="[$style.navLinkWrapper, { [$style._activeLink]: isActiveLink }, classList]">
     <NuxtLink :href="linkData.link" :class="$style.navLink">
+      <!--      возможно стоит сюда прикрутить модуль для иконок-->
       <nuxt-img preload :class="$style.navImg" :src="linkData.imgSrc" />
-      <p :class="$style.navTitle">{{ linkData.title }}</p>
+      <p v-if="linkData.title" :class="$style.navTitle">{{ linkData.title }}</p>
     </NuxtLink>
   </div>
 </template>
@@ -12,23 +13,45 @@ interface LinkProps {
   id?: number | string;
   link: string;
   imgSrc: string;
-  title: string;
+  title?: string;
 }
 
-const props = defineProps<{ linkData: LinkProps }>();
-
+const props = defineProps({
+  linkData: {
+    type: Object as PropType<LinkProps>,
+    required: true, // Указываем, что этот пропс обязателен
+  },
+  size: {
+    type: String as PropType<'base' | 'small'>,
+    default: 'base',
+  },
+});
+const $style = useCssModule();
 const route = useRoute();
 const isActiveLink = computed(() => route.path === props.linkData.link);
+const classList = computed(() => [
+  {
+    [$style[`_${props.size}`]]: props.size,
+  },
+]);
 </script>
 
 <style module lang="scss">
 .navLinkWrapper {
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 5.4rem;
   border-radius: 0.5rem;
   outline: 1px solid transparent;
+
+  &._base {
+    width: 100%;
+    height: 5.4rem;
+  }
+
+  &._small {
+    width: 5.4rem;
+    height: 5.4rem;
+  }
 
   @include respond-to(tablet) {
     height: 7rem;
