@@ -1,9 +1,11 @@
 <template>
   <div :class="$style.TheHeader">
     <!--    надо подумать как данные передать и генерить уникальный id-->
+    <NavigationLogo :class="$style.headerLogo" />
     <NavLink
       :link-data="{ id: 6, link: '/notifications', imgSrc: '/Heart.svg' }"
       data-allow-mismatch
+      border-color="greyBorder"
       size="small"
     />
     <div :class="$style.userInfoWrapper">
@@ -16,6 +18,7 @@
 
 <script setup>
 import NavLink from '~/components/common/NavLink.vue';
+import NavigationLogo from '~/components/common/NavigationLogo.vue';
 
 defineOptions({
   name: 'TheNavigationMenu',
@@ -37,10 +40,22 @@ const userName = 'Алексей Гришкин';
   gap: 3rem;
 }
 
+.headerLogo {
+  display: none;
+
+  @include respond-to(tablet) {
+    display: flex;
+  }
+}
+
 .userInfoWrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  @include respond-to(mobile) {
+    display: none;
+  }
 
   .text {
     font-size: 1.6rem;

@@ -25,6 +25,10 @@ const props = defineProps({
     type: String as PropType<'base' | 'small'>,
     default: 'base',
   },
+  borderColor: {
+    type: String as PropType<'transparentBorder' | 'greyBorder'>,
+    default: 'transparentBorder',
+  },
 });
 const $style = useCssModule();
 const route = useRoute();
@@ -32,6 +36,7 @@ const isActiveLink = computed(() => route.path === props.linkData.link);
 const classList = computed(() => [
   {
     [$style[`_${props.size}`]]: props.size,
+    [$style[`_${props.borderColor}`]]: props.borderColor,
   },
 ]);
 </script>
@@ -43,9 +48,21 @@ const classList = computed(() => [
   border-radius: 0.5rem;
   outline: 1px solid transparent;
 
+  &._transparentBorder {
+    outline: 1px solid transparent;
+  }
+
+  &._greyBorder {
+    outline: 1px solid $grey;
+  }
+
   &._base {
     width: 100%;
     height: 5.4rem;
+
+    @include respond-to(tablet) {
+      height: auto;
+    }
   }
 
   &._small {
@@ -65,7 +82,7 @@ const classList = computed(() => [
     transition: outline 0.5s;
 
     &:hover {
-      outline: 1px solid $grey; // Меняем на серый при наведении
+      outline: 1px solid $grey;
       cursor: pointer;
     }
   }

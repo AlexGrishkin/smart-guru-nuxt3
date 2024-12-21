@@ -69,6 +69,7 @@ const NAVIGATION_CONFIG_BOTTOM = {
   padding: 3rem 2rem;
   flex-direction: column;
   border-right: 2px solid $grey;
+  background-color: $white;
 
   @include respond-to(desktop) {
     width: 23.7rem;
@@ -79,9 +80,12 @@ const NAVIGATION_CONFIG_BOTTOM = {
     top: auto;
     bottom: 0;
     left: 0;
+    display: block;
     width: 100%;
     height: 9.3rem;
     padding: 1rem 2rem;
+    border-top: 2px solid $grey;
+    border-right: none;
   }
 }
 
@@ -98,6 +102,10 @@ const NAVIGATION_CONFIG_BOTTOM = {
 
   @include respond-to(tablet) {
     flex-direction: row;
+  }
+
+  @include respond-to(mobile) {
+    height: 100%;
   }
 }
 
