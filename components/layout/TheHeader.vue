@@ -74,5 +74,6 @@ const userName = 'Алексей Гришкин';
   height: 5.6rem;
   object-fit: cover;
   border-radius: 50%;
+  background-position: center;
 }
 </style>
