@@ -12,6 +12,7 @@
       <p :class="$style.text">Пользователь</p>
       <p :class="$style.userName">{{ userName }}</p>
     </div>
+    <!--    надо бы картинку вынести в ui компоненты чтобы не писать по сто раз стили для них-->
     <NuxtImg src="/Alex.jpg" :class="$style.userImg" />
   </div>
 </template>
