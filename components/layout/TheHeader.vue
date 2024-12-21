@@ -21,7 +21,7 @@ import NavLink from '~/components/common/NavLink.vue';
 import NavigationLogo from '~/components/common/NavigationLogo.vue';
 
 defineOptions({
-  name: 'TheNavigationMenu',
+  name: 'TheHeader',
 });
 const userName = 'Алексей Гришкин';
 </script>
