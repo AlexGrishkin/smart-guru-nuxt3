@@ -18,7 +18,7 @@
 
 <script setup>
 import NavLink from '~/components/common/NavLink.vue';
-import NavigationLogo from '~/components/common/NavigationLogo.vue';
+import NavigationLogo from '~/components/ui/NavigationLogo.vue';
 
 defineOptions({
   name: 'TheNavigationMenu',
